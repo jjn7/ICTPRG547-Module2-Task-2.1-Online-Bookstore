@@ -12,6 +12,9 @@ class DoubleLinkedList:
         self.tail = None    # Points to the last node in the list
         self.size = 0       # Track how many books stored
     
+
+
+
     # Add new book to list
     def add_book(self, book):
         # Create a new node and link it
@@ -31,12 +34,40 @@ class DoubleLinkedList:
 
         self.size += 1      # Increase book Count
     
+
+
+
     # Remove book by ID
     def remove_book(self, book_id):
         # - finds and removes the book
         pass
 
+
+
+
     # Show all books in the inventory
     def display_all(self):
-        # Goes through list and prints books
-        pass
+
+    # Check if the list is empty
+        if self.head is None:
+            print("No books stored")
+            return
+        
+        # Start from the first book (head) and go through list
+        current_node = self.head
+        book_count = 1
+        
+        print(f"Displaying ({self.size} books now):")
+        print("-" * 50)
+        
+        # While loop until end of the list
+        while current_node is not None:
+
+            # Print current book
+            print(f"{book_count}. {current_node.data}")
+            
+            # Move to the next book
+            current_node = current_node.next
+            book_count += 1
+        
+        print("-" * 50)
