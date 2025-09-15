@@ -14,8 +14,22 @@ class DoubleLinkedList:
     
     # Add new book to list
     def add_book(self, book):
-        # - creates new node and links it
-        pass
+        # Create a new node and link it
+        new_node = Node(book)
+        
+        if self.head is None: #Check if the list is empty
+
+            # First book in the list - set both head and tail to this node    
+            self.head = new_node
+            self.tail = new_node
+
+        else:   #List has books - add new book to the end and connect current last book
+            self.tail.next = new_node   # Old tail points forward
+            new_node.prev = self.tail   # New node points back
+
+            self.tail = new_node    #Update tail to point to our new book (now the last one)
+
+        self.size += 1      # Increase book Count
     
     # Remove book by ID
     def remove_book(self, book_id):
