@@ -14,6 +14,9 @@ def main():
     # Print header
     print("Bookstore Inventory")
     print("=" * 30)
+    print(book1)  # Uses the __str__ method previously defined
+    print(book2)
+    print()
 
 # only run main() if this file is run directly (not if it's imported by another file)
 # Every Python file has a built-in variable called __name__. Python automatically sets this variable differently depending on how the file is used.
