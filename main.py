@@ -2,12 +2,14 @@
 from models.book import Book
 from data_structures.linked_list import DoubleLinkedList
 from data_structures.hash_table import HashTable
+from data_structures.binary_tree import BinaryTree
 
 # Main function 
 def main():
     # Initialize data structures
     inventory = DoubleLinkedList()
     quick_lookup = HashTable()  # Including Hash Table
+    tree_lookup = BinaryTree()  # Including Binary Tree
     
     # Test with sample books
     book1 = Book(12345, "Harry Potter", "J.K. Rowling", "Fantasy", 29.99)
@@ -24,32 +26,32 @@ def main():
     inventory.add_book(book3)
     inventory.display_all()       # Show added books
     
-    # TESTING HASH TABLE OUTPUT
+    # TESTING BINARY TREE OUTPUT
     print("\n" + "=" * 30)
     print("Testing Hash Table:")
     print("=" * 30)
 
-    quick_lookup.add_book(book1)  # Should go to position 5 (12345 % 10)
-    quick_lookup.add_book(book2)  # Should go to position 0 (67890 % 10)
-    quick_lookup.add_book(book3)  # Should go to position 1 (11111 % 10)
+    tree_lookup.add_book(book1) # Harry Potter Becomes Root
+    tree_lookup.add_book(book2) # Animal Farm added to left of HP (Alphabetical order)
+    tree_lookup.add_book(book3) # The Great Gatsby goes right of HP (Alphabetical order)
     
     # Display hash table contents
     quick_lookup.display_all()
 
-    # Test finding books
+    # Test finding existing book
     print("\nTesting book lookups:")
-    found_book = quick_lookup.find_book(12345)
+    found_book = tree_lookup.search_by_title("Harry Potter")
     if found_book:
         print(f"Found: {found_book}")
     else:
         print("Book not found")
     
     # Test finding non-existent book
-    not_found = quick_lookup.find_book(99999)
+    not_found = quick_lookup.search_by_title("LOTR")
     if not_found:
         print(f"Found: {not_found}")
     else:
-        print("Book ID 99999 not found (as expected)")
+        print("Book not found (as expected)")
 
 # only run main() if this file is run directly (not if it's imported by another file)
 # Every Python file has a built-in variable called __name__. Python automatically sets this variable differently depending on how the file is used.
