@@ -36,3 +36,44 @@ class HashTable:
         self.count += 1
         print(f"Added book ID {book.id} to hash position {index}")
         return True
+    
+
+    def find_book(self, book_id):
+        # Calculate where the book should be
+        index = self._hash_function(book_id)
+        
+        # Search through books at this position
+        for book in self.table[index]:
+            if book.id == book_id:
+                return book
+        
+        # Book not found
+        return None
+    
+    def remove_book(self, book_id):
+        # Calculate position
+        index = self._hash_function(book_id)
+        
+        # Search and remove
+        for i, book in enumerate(self.table[index]):
+            if book.id == book_id:
+                removed_book = self.table[index].pop(i)
+                self.count -= 1
+                print(f"Removed book: {removed_book}")
+                return True
+        
+        print(f"Book ID {book_id} not found in hash table")
+        return False
+    
+    def display_all(self):
+        print(f"Hash Table Contents ({self.count} books):")
+
+        #search through each table position
+        for i, book_list in enumerate(self.table):
+            if book_list:  # Only show positions that have books
+                print(f"Position {i}:")
+                # Print each book at this position
+                for book in book_list:
+                    print(f"  - {book}")
+        
+        print("-" * 40)
