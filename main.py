@@ -10,6 +10,7 @@ def main():
     # Test with sample books
     book1 = Book(12345, "Harry Potter", "J.K. Rowling", "Fantasy", 29.99)
     book2 = Book(67890, "Animal Farm", "George Orwell", "Fiction", 19.99)
+    book3 = Book(23456, "The Great Gatsby", "F. Scott Fitzgerald", "Historical Fiction", 24.99)
     
     # Print header
     print("Bookstore Inventory")
@@ -18,6 +19,8 @@ def main():
     # Add books to inventory
     inventory.add_book(book1)
     inventory.add_book(book2)
+    inventory.add_book(book3)
+    inventory.display_all()       # Show added books
     
     # Testing book removal
     print("\nTesting removal:")

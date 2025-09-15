@@ -58,7 +58,7 @@ class DoubleLinkedList:
 
                 # Removes if first book but more there are more after. Changes node head to next book
                 elif current_node == self.head:
-                    self.head == current_node.next
+                    self.head = current_node.next
                     self.head.prev = None
 
                 #Removes if last book but are more befroe. Changes node tail to previous book
