@@ -14,6 +14,10 @@ def main():
     # Print header
     print("Bookstore Inventory")
     print("=" * 30)
+
+    # Add books to inventory
+    inventory.add_book(book1)
+    inventory.add_book(book2)
     
     # Testing book removal
     print("\nTesting removal:")
