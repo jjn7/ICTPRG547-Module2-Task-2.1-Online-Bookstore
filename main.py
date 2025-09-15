@@ -19,16 +19,10 @@ def main():
     # Print header
     print("Bookstore Inventory")
     print("=" * 30)
-
-    # Add books to inventory
-    inventory.add_book(book1)
-    inventory.add_book(book2)
-    inventory.add_book(book3)
-    inventory.display_all()       # Show added books
     
     # TESTING BINARY TREE OUTPUT
     print("\n" + "=" * 30)
-    print("Testing Hash Table:")
+    print("Testing Binary Tree:")
     print("=" * 30)
 
     tree_lookup.add_book(book1) # Harry Potter Becomes Root
@@ -36,7 +30,7 @@ def main():
     tree_lookup.add_book(book3) # The Great Gatsby goes right of HP (Alphabetical order)
     
     # Display hash table contents
-    quick_lookup.display_all()
+    tree_lookup.display_all_sorted()
 
     # Test finding existing book
     print("\nTesting book lookups:")
@@ -47,7 +41,7 @@ def main():
         print("Book not found")
     
     # Test finding non-existent book
-    not_found = quick_lookup.search_by_title("LOTR")
+    not_found = tree_lookup.search_by_title("LOTR")
     if not_found:
         print(f"Found: {not_found}")
     else:
