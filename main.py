@@ -11,17 +11,16 @@ def main():
     book1 = Book(12345, "Harry Potter", "J.K. Rowling", "Fantasy", 29.99)
     book2 = Book(67890, "Animal Farm", "George Orwell", "Fiction", 19.99)
     
-    # Test adding books to linked list
-    print("Adding books to inventory...")
+    # Print header
+    print("Bookstore Inventory")
+    print("=" * 30)
+    
+    # Add books to inventory
     inventory.add_book(book1)
-    print(f"Added book 1. Inventory size: {inventory.size}")
-    
     inventory.add_book(book2)
-    print(f"Added book 2. Inventory size: {inventory.size}")
     
-    # Test that head and tail are set correctly
-    print(f"First book in inventory: {inventory.head.data}")
-    print(f"Last book in inventory: {inventory.tail.data}")
+    # Display all books (just call the method directly)
+    inventory.display_all()
 
 # only run main() if this file is run directly (not if it's imported by another file)
 # Every Python file has a built-in variable called __name__. Python automatically sets this variable differently depending on how the file is used.
