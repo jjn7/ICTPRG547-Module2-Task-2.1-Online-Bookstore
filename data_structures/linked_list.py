@@ -30,7 +30,7 @@ class DoubleLinkedList:
             self.tail.next = new_node   # Old tail points forward
             new_node.prev = self.tail   # New node points back
 
-            self.tail = new_node    #Update tail to point to our new book (now the last one)
+            self.tail = new_node    # Update tail to point to our new book (now the last one)
 
         self.size += 1      # Increase book Count
     
@@ -39,8 +39,50 @@ class DoubleLinkedList:
 
     # Remove book by ID
     def remove_book(self, book_id):
-        # - finds and removes the book
-        pass
+        
+        # Check if the list is empty
+        if self.head is None:
+            print("No books stored")
+
+        # Start from the first book (head) and go through list
+        current_node = self.head
+
+        # While loop until end find book with matching ID
+        while current_node is not None:
+            if current_node.data.id == book_id:     # found book
+
+                # Removes if only the one book in list
+                if self.head == self.tail:
+                    self.head: None
+                    self.tail: None
+
+                # Removes if first book but more there are more after. Changes node head to next book
+                elif current_node == self.head:
+                    self.head == current_node.next
+                    self.head.prev = None
+
+                #Removes if last book but are more befroe. Changes node tail to previous book
+                elif current_node == self.tail:
+                    self.tail = current_node.prev
+                    self.tail.next = None
+
+                #Removes book fom anywhere in the middle of list. Changes head and tail to previous and next
+                else:
+                    current_node.prev.next = current_node.next
+                    current_node.next.prev = current_node.prev
+
+                #Update book count
+                self.size -= 1
+                print(f"Removed book: {current_node.data}")
+                return True
+            
+            #move to next book in list
+            current_node = current_node.next
+
+            #if book wasn't found
+        print(f"Book {book_id} not found")
+        return False
+
 
 
 
