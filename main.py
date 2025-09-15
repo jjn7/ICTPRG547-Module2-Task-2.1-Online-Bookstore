@@ -15,12 +15,10 @@ def main():
     print("Bookstore Inventory")
     print("=" * 30)
     
-    # Add books to inventory
-    inventory.add_book(book1)
-    inventory.add_book(book2)
-    
-    # Display all books (just call the method directly)
-    inventory.display_all()
+    # Testing book removal
+    print("\nTesting removal:")
+    inventory.remove_book(12345)  # Remove Harry Potter
+    inventory.display_all()       # Show remaining books
 
 # only run main() if this file is run directly (not if it's imported by another file)
 # Every Python file has a built-in variable called __name__. Python automatically sets this variable differently depending on how the file is used.
