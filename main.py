@@ -11,14 +11,17 @@ def main():
     book1 = Book(12345, "Harry Potter", "J.K. Rowling", "Fantasy", 29.99)
     book2 = Book(67890, "Animal Farm", "George Orwell", "Fiction", 19.99)
     
-    #TEST PRINT BOOK PROPERTIES
-    print("Bookstore Inventory")
-    print("=" * 30)
-    print("Testing Book Properties:")
-    print(f"Book 1 Title: {book1.title}")
-    print(f"Book 1 Price: ${book1.price}")
-    print(f"Book 1 Genre: ${book1.genre}")
-    print()
+    # Test adding books to linked list
+    print("Adding books to inventory...")
+    inventory.add_book(book1)
+    print(f"Added book 1. Inventory size: {inventory.size}")
+    
+    inventory.add_book(book2)
+    print(f"Added book 2. Inventory size: {inventory.size}")
+    
+    # Test that head and tail are set correctly
+    print(f"First book in inventory: {inventory.head.data}")
+    print(f"Last book in inventory: {inventory.tail.data}")
 
 # only run main() if this file is run directly (not if it's imported by another file)
 # Every Python file has a built-in variable called __name__. Python automatically sets this variable differently depending on how the file is used.
