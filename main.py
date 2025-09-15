@@ -11,11 +11,13 @@ def main():
     book1 = Book(12345, "Harry Potter", "J.K. Rowling", "Fantasy", 29.99)
     book2 = Book(67890, "Animal Farm", "George Orwell", "Fiction", 19.99)
     
-    # Print header
+    #TEST PRINT BOOK PROPERTIES
     print("Bookstore Inventory")
     print("=" * 30)
-    print(book1)  # Uses the __str__ method previously defined
-    print(book2)
+    print("Testing Book Properties:")
+    print(f"Book 1 Title: {book1.title}")
+    print(f"Book 1 Price: ${book1.price}")
+    print(f"Book 1 Genre: ${book1.genre}")
     print()
 
 # only run main() if this file is run directly (not if it's imported by another file)
